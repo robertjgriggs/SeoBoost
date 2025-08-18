@@ -457,6 +457,25 @@ body {
     color: var(--primary-color);
 }
 
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    filter: drop-shadow(var(--shadow-lg));
+    transition: var(--transition-normal);
+}
+
+.about-img:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(var(--shadow-xl));
+}
+
 /* Values Section */
 .values {
     padding: var(--spacing-3xl) 0;
