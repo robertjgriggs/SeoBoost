@@ -310,6 +310,19 @@ body {
     filter: drop-shadow(var(--shadow-lg));
 }
 
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    filter: drop-shadow(var(--shadow-lg));
+    transition: var(--transition-normal);
+}
+
+.hero-img:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(var(--shadow-xl));
+}
+
 /* Page Header */
 .page-header {
     padding: 150px 0 var(--spacing-3xl);
