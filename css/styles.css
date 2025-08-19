@@ -125,6 +125,12 @@ body {
     font-size: var(--font-size-2xl);
 }
 
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
 .nav-menu {
     display: flex;
     gap: var(--spacing-xl);
