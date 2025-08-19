@@ -125,11 +125,13 @@ body {
     font-size: var(--font-size-2xl);
 }
 
-.logo-icon {
+.nav-logo .logo-icon,
+.footer-logo .logo-icon {
     width: 20px;
     height: 20px;
-    object-fit: contain;
-    filter: brightness(1.1);
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
 }
 
 .nav-menu {
