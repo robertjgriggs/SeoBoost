@@ -228,7 +228,7 @@ if (validateForm(formData)) {
     submitForm(formData);
 }
     });
-    
+ 
     // Validation functions
     function validateField(fieldName, value) {
         let isValid = true;
