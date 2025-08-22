@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeScrollEffects();
     initializeFAQ();
-   // initializeContactForm();
+    initializeContactForm();
     initializeAnimations();
 });
 
@@ -225,7 +225,7 @@ function initializeContactForm() {
         };
         
 if (validateForm(formData)) {
-    submitForm(formData);
+    submitForm();
 }
     });
  
@@ -340,7 +340,7 @@ if (validateForm(formData)) {
         }
     }
     
-    function submitForm(data) {
+  /*  function submitForm(data) {
         // Show loading state
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const buttonText = submitButton.querySelector('.btn-text');
@@ -373,6 +373,47 @@ if (validateForm(formData)) {
             
         }, 2000);
     }
+    */
+    
+    async function submitForm(fd) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const buttonText   = submitButton?.querySelector('.btn-text');
+    const buttonIcon   = submitButton?.querySelector('i');
+    const formMessage  = document.getElementById('formMessage');
+
+    // Loading state
+    if (buttonText) buttonText.textContent = 'Sending...';
+    if (buttonIcon) buttonIcon.className = 'fas fa-spinner fa-spin';
+    submitButton.disabled = true;
+    formMessage.textContent = '';
+    formMessage.style.display = 'none';
+
+    // Build FormData from the actual form
+    const realFD = new FormData(contactForm);
+    if (!realFD.has('_honeypot')) realFD.append('_honeypot','');
+    if (!realFD.has('_subject')) realFD.append('_subject', `New enquiry: ${realFD.get('name') || 'Website'}`);
+    if (realFD.get('newsletter')) realFD.set('newsletter','yes');
+
+    try {
+        const res = await fetch('https://submit-form.com/NHh1bm5Y8', {
+            method: 'POST',
+            body: realFD,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (!res.ok) throw new Error('Formspark rejected');
+        
+        contactForm.reset();
+        showFormMessage('✅ Thank you — your message was sent successfully!', 'success');
+    } catch (err) {
+        console.error('Formspark error:', err);
+        showFormMessage('❌ Sorry, something went wrong. Please try again.', 'error');
+    } finally {
+        if (buttonText) buttonText.textContent = 'Send Message';
+        if (buttonIcon) buttonIcon.className = 'fas fa-paper-plane';
+        submitButton.disabled = false;
+    }
+}
+
     
     function showFormMessage(message, type) {
         if (formMessage) {
