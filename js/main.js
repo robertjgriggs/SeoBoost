@@ -224,9 +224,9 @@ function initializeContactForm() {
             newsletter: formInputs.newsletter?.checked
         };
         
-        if (validateForm(formData)) {
-            submitForm(formData);
-        }
+if (validateForm(formData)) {
+    submitForm(formData);
+}
     });
     
     // Validation functions
