@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeScrollEffects();
     initializeFAQ();
-    initializeContactForm();
+   // initializeContactForm();
     initializeAnimations();
 });
 
