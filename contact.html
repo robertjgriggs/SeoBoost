@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <script src="https://unpkg.com/@botpoison/browser" async></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -271,7 +271,19 @@
             </div>
         </div>
     </footer>
-
+<script>
+  var formElement = document.getElementById("form");
+  var buttonElement = document.getElementById("button");
+  formElement.addEventListener("botpoison-challenge-start", function () {
+    buttonElement.setAttribute("disabled", "disabled");
+  });
+  formElement.addEventListener("botpoison-challenge-success", function () {
+    buttonElement.removeAttribute("disabled");
+  });
+  formElement.addEventListener("botpoison-challenge-error", function () {
+    buttonElement.removeAttribute("disabled");
+  });
+</script>
     <script src="js/main.js"></script>
 </body>
 </html>
