@@ -127,8 +127,8 @@ body {
 
 .nav-logo .logo-icon,
 .footer-logo .logo-icon {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     display: inline-block;
     vertical-align: middle;
     flex-shrink: 0;
