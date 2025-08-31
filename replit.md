@@ -13,10 +13,17 @@ Preferred communication style: Simple, everyday language.
 ### Frontend Architecture
 The application follows a traditional multi-page website structure with static HTML files. Each page maintains consistent navigation and styling while serving specific content purposes:
 
-- **Static HTML Pages**: Separate HTML files for each major section (index, about, services, contact)
+- **Static HTML Pages**: Separate HTML files for each major section (index, about, services, contact, insights)
 - **Shared CSS Framework**: Centralized styling using CSS custom properties (CSS variables) for consistent theming
 - **Vanilla JavaScript**: Client-side interactivity without framework dependencies
 - **Component-Based CSS**: Modular CSS classes for reusable UI components
+
+#### Page Structure
+- **index.html**: Homepage with hero section, features, and service showcases
+- **about.html**: Company information, mission, and team details
+- **services.html**: Detailed service offerings and pricing
+- **contact.html**: Contact form and company information
+- **insights.html**: Blog-style page with SEO articles and newsletter signup (Added: Aug 31, 2025)
 
 ### Design System
 The architecture implements a comprehensive design system through CSS custom properties:
