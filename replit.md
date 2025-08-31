@@ -23,7 +23,10 @@ The application follows a traditional multi-page website structure with static H
 - **about.html**: Company information, mission, and team details
 - **services.html**: Detailed service offerings and pricing
 - **contact.html**: Contact form and company information
-- **insights.html**: Blog-style page with SEO articles and newsletter signup (Added: Aug 31, 2025)
+- **insights/**: Blog directory with organized article structure (Updated: Aug 31, 2025)
+  - **insights/index.html**: Main blog page with article listings
+  - **insights/technical-seo-guide-2025.html**: Featured technical SEO article
+  - Individual article pages for SEO content with proper URL structure
 
 ### Design System
 The architecture implements a comprehensive design system through CSS custom properties:
