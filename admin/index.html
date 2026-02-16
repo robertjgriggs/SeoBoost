@@ -5,7 +5,6 @@
     <title>CMS Admin</title>
     <meta name="robots" content="noindex" />
   </head>
-
   <body>
     <div id="nc-root"></div>
 
@@ -13,13 +12,33 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <script>
-      // Initialize Identity
+      // ENSURE Identity is initialized before DecapCMS loads
+      window.netlifyIdentity = window.netlifyIdentity || null;
+
       if (window.netlifyIdentity) {
         window.netlifyIdentity.init();
+
+        // force DecapCMS to use Netlify Identity login
+        document.addEventListener("DOMContentLoaded", function () {
+          if (window.netlifyIdentity) {
+            // override default login
+            window.netlifyIdentity.on("init", (user) => {
+              if (!user) {
+                const loginButton = document.querySelector(".nc-login-button");
+                if (loginButton) {
+                  loginButton.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    window.netlifyIdentity.open("login");
+                  });
+                }
+              }
+            });
+          }
+        });
       }
     </script>
 
-    <!-- Decap CMS -->
+    <!-- DecapCMS -->
     <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.10.0/dist/decap-cms.js"></script>
   </body>
 </html>
